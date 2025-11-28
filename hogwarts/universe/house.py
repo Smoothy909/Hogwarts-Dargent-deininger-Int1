@@ -169,14 +169,3 @@ def assign_house(character):
 
 
 
-
-
-
-
-
-
-
-
-
-
-

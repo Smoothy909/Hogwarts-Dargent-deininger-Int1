@@ -106,23 +106,40 @@ def chapter_1():
             display_character(character)
             return
         else:
-            chosen_wand  = ask_choice("Which wand would you like to buy?", ["Oak Wand - 10 Galleons", "Yew Wand - 15 Galleons", "Elder Wand - 50 Galleons"])
-            modify_money(character, - (10 if "Oak" in chosen_wand else 15 if "Yew" in chosen_wand else 50))
-            if chosen_wand == "Elder Wand" and character['money'] < 40:
-                print("You don't have enough money to buy Elder Wand.")
-            chosen_robe  = ask_choice("Which robe would you like to buy?", ["Standard Robe - 20 Galleons", "Enchanted Robe - 40 Galleons"])
-            modify_money(character, - (20 if "Standard" in chosen_robe else 40))
+            while character['money'] >= 0:
+                print(f"You have {character['money']} Galleons left.")
+                wand_options = ["Oak Wand - 10 Galleons", "Yew Wand - 15 Galleons", "Elder Wand - 50 Galleons"]
+                chosen_wand = ask_choice("Choose your wand:", wand_options)
+                if chosen_wand == "Oak Wand - 10 Galleons":
+                    modify_money(character, -10)
+                    chosen_wand = "Oak Wand"
+                elif chosen_wand == "Yew Wand - 15 Galleons":
+                    modify_money(character, -15)
+                    chosen_wand = "Yew Wand"
+                else:
+                    modify_money(character, -50)
+                    chosen_wand = "Elder Wand"
 
-            chosen_books = ask_choice("Which books would you like to buy?", ["Basic Spellbook - 15 Galleons", "Advanced Spellbook - 30 Galleons"])
-            modify_money(character, - (15 if "Basic" in chosen_books else 30))
+                robe_options = ["Standard Robe - 20 Galleons", "Enchanted Robe - 40 Galleons"]
+                chosen_robe = ask_choice("Choose your robe:", robe_options)
+                if chosen_robe == "Standard Robe - 20 Galleons":
+                    modify_money(character, -20)
+                    chosen_robe = "Standard Robe"
+                else:
+                    modify_money(character, -40)
+                    chosen_robe = "Enchanted Robe"
 
-
-
-
-
+                books_options = ["Basic Spellbook - 15 Galleons", "Advanced Spellbook - 30 Galleons"]
+                chosen_books = ask_choice("Choose your books:", books_options)
+                if chosen_books == "Basic Spellbook - 15 Galleons":
+                    modify_money(character, -15)
+                    chosen_books = "Basic Spellbook"
+                else:
+                    modify_money(character, -30)
+                    chosen_books = "Advanced Spellbook"
             continue_shopping = ask_choice("Do you want to continue shopping?", ["Yes", "No"])
             if continue_shopping == "Yes":
-                print("you can buy additional items if you want")
+                print("hello")### fehsufe
             else:
                 print("You have finished your shopping.")
                 #add items to inventory and deduct money here
