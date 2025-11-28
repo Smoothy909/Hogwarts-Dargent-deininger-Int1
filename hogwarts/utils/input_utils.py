@@ -1,3 +1,5 @@
+import json
+
 def ask_text(message):
     try :
         return str(input(message))
@@ -22,3 +24,14 @@ def ask_choice(message, options):
     else:
         print("Invalid choice. Please try again.")
         return ask_choice(message, options)
+
+def load_file_content(file_path: str) -> dict :
+    try:
+        with open(file_path, 'r', encoding="utf-8") as file:
+            return json.load(file)
+
+    except FileNotFoundError:
+        print(f"File not found: {file_path}")
+        return {}
+
+load_file_content("..data/spells.json")
