@@ -1,4 +1,5 @@
-from hogwarts.utils.input_utils import ask_text, ask_number, ask_choice
+from random import randint
+from hogwarts.utils.input_utils import ask_text, ask_number, ask_choice, load_file_content
 from hogwarts.universe.character import init_character, display_character, add_to_inventory, modify_money
 
 def introduction():
@@ -7,8 +8,6 @@ def introduction():
     input("Press Enter to continue...")
 
 def create_character():
-
-
     print("Let's create your character!")
     first_name = ask_text("Enter your first name: ")
     last_name = ask_text("Enter your last name: ")
@@ -34,7 +33,7 @@ def create_character():
         "courage": courage,
         "loyalty": loyalty,
         "ambition": ambition,
-        "money": 100  # Starting money
+        "money": randint(10, 40)*10  # Starting money
     }
 
     character = init_character(last_name, first_name, attributes)
@@ -67,6 +66,7 @@ def meet_hagrid(character):
     return
 
 def buy_supplies(character):
+    load_file_content("..data/inventory.json")
     print("Welcome to Diagon Alley! Here you can buy all your magical supplies.")
     print(f"You have {character['money']} Galleons to spend.")
     print("You have to buy a wand, a robe, and some books.")
@@ -74,8 +74,8 @@ def buy_supplies(character):
     print("Here are a list of what you can buy:")
     print("REQUIRED ITEMS:")
     print("- Wands:")
-    print("  1. Oak Wand - 10 Galleons")
-    print("  2. Yew Wand - 15 Galleons")
+    print("  1. Oak Wand - 15 Galleons")
+    print("  2. Yew Wand - 25 Galleons")
     print("  3. Elder Wand - 50 Galleons")
     print("- Robes:")
     print("  1. Standard Robe - 20 Galleons")
@@ -84,33 +84,35 @@ def buy_supplies(character):
     print("  1. Basic Spellbook - 15 Galleons")
     print("  2. Advanced Spellbook - 30 Galleons")
     print("ADDITIONAL ITEMS (optional):")
+    print("- Magic Quill - 5 Galleons")
     print("- tin Cauldron - 10 Galleons")
-    print("- set of Glass or Crystal Phials - 5 Galleons")
-    print("- telescope - 20 Galleons")
-    print("- set of Brass Scales - 15 Galleons")
-    print("- Trunk - 25 Galleons")
+    print("- set of Copper Scales - 10 Galleons")
+    print("- set of Glass or Crystal Phials - 12 Galleons")
+    print("- Trunk - 22 Galleons")
     print("- Broomstick - 60 Galleons")
-    print("- potions ingredients - 5 Galleons each")
+    print("- Invisibility Cloak - 100 Galleons")
     print("A PET (optional):")
-    print("- Owl - 100 Galleons")
+    print("- Owl - 80 Galleons")
     print("- Cat - 50 Galleons")
     print("- Toad - 25 Galleons")
     print()
     start = ask_choice("Do you want to start shopping?", ["Yes", "No"])
     if start == "No":
-        print("You do not have a choice. You buy the required items anyway.")
-        modify_money(character, -45)
+        print("You do not have a choice. You will buy the required items anyway and a cat.")
+        print()
+        modify_money(character, -95)
         add_to_inventory(character, "inventory", "Oak Wand")
         add_to_inventory(character, "inventory", "Standard Robe")
         add_to_inventory(character, "inventory", "Basic Spellbook")
-        input("Press enter to see your inventory")
+        add_to_inventory(character, "inventory", "cat")
+        input("Press enter to see your inventory and continue the story...")
         display_character(character)
         return
     else:
         while character['money'] >= 0:
+            print()
             print(f"You have {character['money']} Galleons left.")
-            wand_options = ["Oak Wand - 10 Galleons", "Yew Wand - 15 Galleons", "Elder Wand - 50 Galleons"]
-            chosen_wand = ask_choice("Choose your wand:", wand_options)
+            chosen_wand = ask_choice("Choose your wand:", ["Oak Wand - 10 Galleons", "Yew Wand - 15 Galleons", "Elder Wand - 50 Galleons"])
             if chosen_wand == "Oak Wand - 10 Galleons":
                 modify_money(character, -10)
                 chosen_wand = "Oak Wand"
@@ -122,10 +124,9 @@ def buy_supplies(character):
                 chosen_wand = "Elder Wand"
             add_to_inventory(character, "inventory", chosen_wand)
 
-
+            print()
             print(f"You have {character['money']} Galleons left.")
-            robe_options = ["Standard Robe - 20 Galleons", "Enchanted Robe - 40 Galleons"]
-            chosen_robe = ask_choice("Choose your robe:", robe_options)
+            chosen_robe = ask_choice("Choose your robe:", ["Standard Robe - 20 Galleons", "Enchanted Robe - 40 Galleons"])
             if chosen_robe == "Standard Robe - 20 Galleons":
                 modify_money(character, -20)
                 chosen_robe = "Standard Robe"
@@ -136,8 +137,7 @@ def buy_supplies(character):
 
 
             print(f"You have {character['money']} Galleons left.")
-            books_options = ["Basic Spellbook - 15 Galleons", "Advanced Spellbook - 30 Galleons"]
-            chosen_books = ask_choice("Choose your books:", books_options)
+            chosen_books = ask_choice("Choose your books:", ["Basic Spellbook - 15 Galleons", "Advanced Spellbook - 30 Galleons"])
             if chosen_books == "Basic Spellbook - 15 Galleons":
                 modify_money(character, -15)
                 chosen_books = "Basic Spellbook"
@@ -159,41 +159,40 @@ def buy_supplies(character):
                     print("You do not have enough money to buy any additional items.")
                     print()
                     break
-
+                load_file_content('..hogwarts/data/inventory.json')
                 nb_other_items= ask_number("Out of the other items (cauldron, phials, telescope, brass scales, trunk, broomstick, PET(only 1), how many additional items do you want to buy? ")
                 for i in range(nb_other_items):
-                    item = ask_choice("Which item do you want to buy?", ["tin Cauldron - 10 Galleons", "set of Glass or Crystal Phials - 5 Galleons", "telescope - 20 Galleons", "set of Brass Scales - 15 Galleons", "Trunk - 25 Galleons", "Broomstick - 60 Galleons", "Owl - 100 Galleons", "Cat - 50 Galleons", "Toad - 25 Galleons", "potions ingredients - 5 Galleons each"])
-                    if item == "tin Cauldron - 10 Galleons":
+                    item = ask_choice("Which item do you want to buy?", ["Magic Quill - 5 Galleons", "tin Cauldron - 10 Galleons", "set of Copper Scales - 10 Galleons", "set of Glass or Crystal Phials - 12 Galleons", "Trunk - 25 Galleons", "Broomstick - 60 Galleons", "Invisibility Cloak - 100 Galleons", "Owl - 80 Galleons", "Cat - 50 Galleons", "Toad - 30 Galleons"])
+                    if item == "Magic Quill - 5 Galleons":
+                        price = 5
+                        item = "Magic Quill"
+                    elif item == "tin Cauldron - 10 Galleons":
                         price = 10
                         item = "tin Cauldron"
-                    elif item == "set of Glass or Crystal Phials - 5 Galleons":
-                        price = 5
+                    elif item == "set of Copper Scales - 10 Galleons":
+                        price = 10
+                        item = "set of Copper Scales"
+                    elif item == "set of Glass or Crystal Phials - 12 Galleons":
+                        price = 12
                         item = "set of Glass or Crystal Phials"
-                    elif item == "telescope - 20 Galleons":
-                        price = 20
-                        item = "telescope"
-                    elif item == "set of Brass Scales - 15 Galleons":
-                        price = 15
-                        item = "set of Brass Scales"
                     elif item == "Trunk - 25 Galleons":
                         price = 25
                         item = "Trunk"
                     elif item == "Broomstick - 60 Galleons":
                         price = 60
                         item = "Broomstick"
-                    elif item == "Owl - 100 Galleons":
+                    elif item == "Invisibility Cloak - 100 Galleons":
                         price = 100
+                        item = "Invisibility Cloak"
+                    elif item == "Owl - 80 Galleons":
+                        price = 80
                         item = "Owl"
                     elif item == "Cat - 50 Galleons":
                         price = 50
                         item = "Cat"
-                    elif item == "Toad - 25 Galleons":
-                        price = 25
-                        item = "Toad"
                     else:
-                        price = 5
-                        item = "potions ingredients"
-
+                        price = 30
+                        item = "Toad"
                     if character['money'] >= price:
                         modify_money(character, -price)
                         add_to_inventory(character, "inventory", item)

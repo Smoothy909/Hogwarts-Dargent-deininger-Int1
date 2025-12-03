@@ -15,6 +15,9 @@ def init_character(last_name, first_name, attributes):
     return character
 
 def display_character(character):
+    print()
+    print("-------Character Info-------")
+    print()
     print(f"Character: {character['first_name']} {character['last_name']}")
     print(f"Money: {character['money']} Galleons")
     print("Inventory:", ", ".join(character['inventory']) if character['inventory'] else "Empty")
@@ -22,6 +25,8 @@ def display_character(character):
     print("Attributes:")
     for attr, value in character['Attributes'].items():
         print(f"  {attr.capitalize()}: {value}")
+    print()
+    print("------------------------------")
 
 def modify_money(character, amount):
     character['money'] += amount
