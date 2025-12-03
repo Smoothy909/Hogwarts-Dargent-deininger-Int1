@@ -209,7 +209,50 @@ def buy_supplies(character):
     input("Press enter to see your inventory and continue...")
     display_character(character)
 
-    # Chapter 1 Flow
+def add_bonus_items(character):
+    for item in character['inventory']:
+        if item == "Oak Wand":
+            character["Attributes"]["ambition"] += 1
+        elif item == "Yew Wand":
+            character["Attributes"]["ambition"] += 2
+        elif item == "Elder Wand":
+            character["Attributes"]["ambition"] += 5
+
+        elif item == "Standard Robe":
+            character["Attributes"]["loyalty"] += 1
+        elif item == "Enchanted Robe":
+            character["Attributes"]["loyalty"] += 2
+
+        elif item == "Basic Spellbook":
+            character["Attributes"]["intelligence"] += 2
+        elif item == "Advanced Spellbook":
+            character["Attributes"]["intelligence"] += 3
+
+
+        elif item == "Magic Quill":
+            character["Attributes"]["intelligence"] += 1
+        elif item == "tin Cauldron":
+            character["Attributes"]["intelligence"] += 1
+        elif item == "set of Copper Scales":
+            character["Attributes"]["intelligence"] += 1
+        elif item == "set of Glass or Crystal Phials":
+            character["Attributes"]["intelligence"] += 1
+        elif item == "Trunk":
+            character["Attributes"]["loyalty"] += 1
+        elif item == "Broomstick":
+            character["Attributes"]["courage"] += 2
+        elif item == "Invisibility Cloak":
+            character["Attributes"]["courage"] += 3
+
+        elif item == "Owl":
+            character["Attributes"]["intelligence"] += 2
+        elif item == "Cat":
+            character["Attributes"]["loyalty"] += 2
+        elif item == "Toad":
+            character["Attributes"]["courage"] += 1
+    return character
+
+# Chapter 1 Flow
 def start_chapter_1():
         introduction()
         character = create_character()
@@ -222,5 +265,3 @@ def start_chapter_1():
             print("You have chosen not to attend Hogwarts. The game will now end.")
 
         return character
-
-start_chapter_1()

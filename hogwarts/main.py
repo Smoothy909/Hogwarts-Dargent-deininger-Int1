@@ -1,5 +1,5 @@
 from hogwarts.chapters.chapter_1 import start_chapter_1
-from ..hogwarts.menus import *
+from menus import *
 def main():
     start = launch_menu()
     current_chapter = 0
