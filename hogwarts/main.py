@@ -1,4 +1,4 @@
-from hogwarts.chapters.chapter_1 import start_chapter_1
+from hogwarts.chapters.chapter_2 import assign_house
 from hogwarts.menus import launch_menu, run_chapter
 from hogwarts.utils.input_utils import ask_choice
 from hogwarts.universe.character import create_character
@@ -17,8 +17,9 @@ def main():
                 continue_game = ask_choice("Do you want to continue to the next chapter?", ["Yes (save progress)", "stop and save progress", "quit without saving"])
                 if continue_game == "Yes (save progress)":
                     current_chapter += 1
-                    if current_chapter == 3:
-                        current_chapter = 4  # Skip chapter 3 for this example
+                    if current_chapter == 2:
+                        character['house'] = 'Slytherin'
+                        current_chapter = 4  # Skip chapter 2 and 3 for this example
                     print()
                     input("Press Enter to continue to the next chapter...")
                     run_chapter(current_chapter, character)

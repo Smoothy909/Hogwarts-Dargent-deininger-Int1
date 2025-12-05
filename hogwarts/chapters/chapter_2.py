@@ -128,7 +128,7 @@ def sorting_ceremony(character):
     print()
     print(f"The Sorting Hat has decided: You are in {assigned_house}!")
     display_character(character)
-    return
+    return character
 
 def chapter_2(character):
     print()
@@ -140,6 +140,7 @@ def chapter_2(character):
     sorting_ceremony(character)
     print()
     print("End of Chapter 2 — Your adventure at Hogwarts is just beginning!")
+    print()
     return character
 
 
