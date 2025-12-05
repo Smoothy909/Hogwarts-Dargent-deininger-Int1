@@ -220,9 +220,8 @@ def add_items_attributes(character):
     return character
 
 # Chapter 1 Flow
-def start_chapter_1():
+def start_chapter_1(character):
         introduction()
-        character = create_character()
         accepted = receive_welcome_letter(character)
         if accepted == "Yes":
             meet_hagrid(character)

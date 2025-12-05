@@ -7,7 +7,7 @@ def display_menu():
     ask_choice("Welcome to Hogwarts! Please choose an option:", ["1. Start New Game", "2. Load Game", "3. Exit"])
     return
 def launch_menu():
-    houses_points = {
+    houses = {
         "Gryffindor": 0,
         "Hufflepuff": 0,
         "Ravenclaw": 0,
@@ -22,3 +22,20 @@ def launch_menu():
         elif choice == "Exit":
             return "exit"
 
+def run_chapter(chapter_nuber, character):
+    if chapter_nuber == 1:
+        from hogwarts.chapters.chapter_1 import start_chapter_1
+        start_chapter_1(character)
+    elif chapter_nuber == 2:
+        from hogwarts.chapters.chapter_2 import chapter_2
+        chapter_2(character)
+    elif chapter_nuber == 3:
+        from hogwarts.chapters.chapter_3 import chapter_3
+        chapter_3(character)
+    elif chapter_nuber == 4:
+        from hogwarts.chapters.chapter_4 import chapter_4
+        chapter_4(character)
+    elif chapter_nuber == 5:
+        from hogwarts.chapters.chapter_5_extension import chapter_5
+        chapter_5(character)
+    return

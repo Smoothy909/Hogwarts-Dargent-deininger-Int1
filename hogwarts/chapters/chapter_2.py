@@ -99,16 +99,11 @@ def meet_friends(character):
         print("— Interesting… I’ll remember you.")
         print("")
         print("(That could be trouble… or an opportunity.)")
-
-
-print("The train continues its journey. Hogwarts Castle appears on the horizon...")
-print()
-print("Your choices already say a lot about your personality!")
-print()
-print(f"Your updated attributes : {character['Attributes']}")
-
-
-character["Attributes"]["Loyalty"]+=2
+    print("The train continues its journey. Hogwarts Castle appears on the horizon...")
+    print()
+    print("Your choices already say a lot about your personality!")
+    print()
+    print(f"Your updated attributes : {character['Attributes']}")
 
 def welcome_message():
     print("Professor Dumbledore appears before you, his eyes twinkling behind half-moon spectacles.")
@@ -124,10 +119,28 @@ def welcome_message():
     print("Remember: courage, wisdom, loyalty, and ambition all have their place here.")
     print("Your journey begins now... and I trust it will be a remarkable one.")
 
-def
+def sorting_ceremony(character):
+    print()
+    print("It's time for the Sorting Ceremony!")
+    print("The Sorting Hat is placed on your head, and you feel it probing your mind.")
+    assigned_house = assign_house(character)
+    character["house"] = assigned_house
+    print()
+    print(f"The Sorting Hat has decided: You are in {assigned_house}!")
+    display_character(character)
+    return
 
-
-
+def chapter_2(character):
+    print()
+    print("-------Chapter 2: The Journey to Hogwarts-------")
+    print()
+    introduction2()
+    meet_friends(character)
+    welcome_message()
+    sorting_ceremony(character)
+    print()
+    print("End of Chapter 2 — Your adventure at Hogwarts is just beginning!")
+    return character
 
 
 

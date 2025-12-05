@@ -160,8 +160,6 @@ def assign_house(character):
                 assigned_house = ask_choice("It's a four-way tie! Which house do you prefer?", ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"])
                 break
 
-    character['house'] = assigned_house
-    print(f"You have been assigned to {assigned_house}!")
     return assigned_house
 
 
