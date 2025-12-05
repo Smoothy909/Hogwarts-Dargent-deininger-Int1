@@ -26,7 +26,7 @@ def create_character():
         "courage": courage,
         "loyalty": loyalty,
         "ambition": ambition,
-        "money": randint(10, 40)*10  # Starting money
+        "money": randint(15, 40)*10  # Starting money
     }
 
     character = init_character(last_name, first_name, attributes)
