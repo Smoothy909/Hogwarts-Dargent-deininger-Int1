@@ -1,6 +1,6 @@
-from ..hogwarts.utils.input_utils import *
-from ..hogwarts.universe.house import *
-from ..hogwarts.universe.character import *
+from hogwarts.utils.input_utils import *
+from hogwarts.universe.house import *
+from hogwarts.universe.character import *
 
 
 def display_menu():

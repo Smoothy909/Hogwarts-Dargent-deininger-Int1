@@ -1,3 +1,38 @@
+from hogwarts.utils.input_utils import *
+from random import randint
+def create_character():
+    print("Let's create your character!")
+    first_name = ask_text("Enter your first name: ")
+    last_name = ask_text("Enter your last name: ")
+
+    print("Distribute 30 points among the following attributes:")
+    intelligence = ask_number("Intelligence (0-10): ")
+    courage = ask_number("Courage (0-10): ")
+    loyalty = ask_number("Loyalty (0-10): ")
+    ambition = ask_number("Ambition (0-10): ")
+
+    total_points = intelligence + courage + loyalty + ambition
+
+    while total_points > 30:
+        print("You have allocated more than the maximum amount of points. Please redistribute your points.")
+        intelligence = ask_number("Intelligence (0-10): ")
+        courage = ask_number("Courage (0-10): ")
+        loyalty = ask_number("Loyalty (0-10): ")
+        ambition = ask_number("Ambition (0-10): ")
+        total_points = intelligence + courage + loyalty + ambition
+
+    attributes = {
+        "intelligence": intelligence,
+        "courage": courage,
+        "loyalty": loyalty,
+        "ambition": ambition,
+        "money": randint(10, 40)*10  # Starting money
+    }
+
+    character = init_character(last_name, first_name, attributes)
+    display_character(character)
+    return character
+
 def init_character(last_name, first_name, attributes):
     character = {
         "last_name": last_name,

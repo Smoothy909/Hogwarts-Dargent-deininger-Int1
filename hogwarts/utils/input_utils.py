@@ -33,5 +33,3 @@ def load_file_content(file_path: str) -> dict :
     except FileNotFoundError:
         print(f"File not found: {file_path}")
         return {}
-
-load_file_content("..data/spells.json")

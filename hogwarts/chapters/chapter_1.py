@@ -1,44 +1,12 @@
-from random import randint
-from hogwarts.utils.input_utils import ask_text, ask_number, ask_choice, load_file_content
-from hogwarts.universe.character import init_character, display_character, add_to_inventory, modify_money
+from hogwarts.utils.input_utils import ask_number, ask_choice, load_file_content
+from hogwarts.universe.character import display_character, add_to_inventory, modify_money, create_character, \
+    init_character
+
 
 def introduction():
     print("Welcome to Hogwarts School of Witchcraft and Wizardry!")
     ### A modifier ici pour l'introduction ###
     input("Press Enter to continue...")
-
-def create_character():
-    print("Let's create your character!")
-    first_name = ask_text("Enter your first name: ")
-    last_name = ask_text("Enter your last name: ")
-
-    print("Distribute 30 points among the following attributes:")
-    intelligence = ask_number("Intelligence (0-10): ")
-    courage = ask_number("Courage (0-10): ")
-    loyalty = ask_number("Loyalty (0-10): ")
-    ambition = ask_number("Ambition (0-10): ")
-
-    total_points = intelligence + courage + loyalty + ambition
-
-    while total_points > 30:
-        print("You have allocated more than the maximum amount of points. Please redistribute your points.")
-        intelligence = ask_number("Intelligence (0-10): ")
-        courage = ask_number("Courage (0-10): ")
-        loyalty = ask_number("Loyalty (0-10): ")
-        ambition = ask_number("Ambition (0-10): ")
-        total_points = intelligence + courage + loyalty + ambition
-
-    attributes = {
-        "intelligence": intelligence,
-        "courage": courage,
-        "loyalty": loyalty,
-        "ambition": ambition,
-        "money": randint(10, 40)*10  # Starting money
-    }
-
-    character = init_character(last_name, first_name, attributes)
-    display_character(character)
-    return character
 
 def receive_welcome_letter(character):
     print(f"Dear {character['first_name']} {character['last_name']},")
@@ -66,7 +34,6 @@ def meet_hagrid(character):
     return
 
 def buy_supplies(character):
-    load_file_content("..data/inventory.json")
     print("Welcome to Diagon Alley! Here you can buy all your magical supplies.")
     print(f"You have {character['money']} Galleons to spend.")
     print("You have to buy a wand, a robe, and some books.")
@@ -209,7 +176,7 @@ def buy_supplies(character):
     input("Press enter to see your inventory and continue...")
     display_character(character)
 
-def add_bonus_items(character):
+def add_items_attributes(character):
     for item in character['inventory']:
         if item == "Oak Wand":
             character["Attributes"]["ambition"] += 1
@@ -261,6 +228,7 @@ def start_chapter_1():
             meet_hagrid(character)
             buy_supplies(character)
             print("Congratulations! You have completed Chapter 1 and are ready to start your journey at Hogwarts!")
+            character = add_items_attributes(character)
         else:
             print("You have chosen not to attend Hogwarts. The game will now end.")
 
