@@ -9,19 +9,25 @@ def main():
     current_chapter = 0
     if start == "new_game":
         print("Starting a new game...")
+        print()
+        character = create_character()
         while current_chapter < 5:
-            character = create_character()
             print()
-            start_chapter_1(character)
-            current_chapter += 1
-            continue_game = ask_choice("Do you want to continue to the next chapter?", ["Yes (save progress)", "stop and save progress", "quit without saving"])
-            if continue_game == "Yes (save progress)":
-                current_chapter += 1
-                input("Press Enter to continue to the next chapter...")
-                run_chapter(current_chapter, character)
+            if current_chapter != 0:
+                continue_game = ask_choice("Do you want to continue to the next chapter?", ["Yes (save progress)", "stop and save progress", "quit without saving"])
+                if continue_game == "Yes (save progress)":
+                    current_chapter += 1
+                    if current_chapter == 3:
+                        current_chapter = 4  # Skip chapter 3 for this example
+                    print()
+                    input("Press Enter to continue to the next chapter...")
+                    run_chapter(current_chapter, character)
+                else:
+                    print("Exiting the game. See you next time!")
+                    return -1
             else:
-                print("Exiting the game. See you next time!")
-                return -1
+                current_chapter = 1
+                run_chapter(current_chapter, character)
 
 
     elif launch_menu() == "load_game":

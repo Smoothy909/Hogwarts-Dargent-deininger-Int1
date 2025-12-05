@@ -62,6 +62,7 @@ def display_character(character):
         print(f"  {attr.capitalize()}: {value}")
     print()
     print("------------------------------")
+    print()
 
 def modify_money(character, amount):
     character['money'] += amount

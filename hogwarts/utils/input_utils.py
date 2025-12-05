@@ -28,6 +28,7 @@ def ask_choice(message, options):
 def load_file_content(file_path: str) -> dict :
     try:
         with open(file_path, 'r', encoding="utf-8") as file:
+
             return json.load(file)
 
     except FileNotFoundError:

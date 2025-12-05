@@ -1,6 +1,7 @@
 from hogwarts.universe.house import display_winning_house
 from hogwarts.universe.character import *
 from random import randint
+
 def create_team(house, team_data, is_player=False, player=None):
     team = {
         "house": house,
@@ -114,7 +115,7 @@ def chapter_4(character):
     print("Your performance as the Seeker can greatly influence the outcome of the match.")
     print("Get ready to take to the skies and lead your team to victory!")
     print()
-    houses_data = load_file_content("hogwarts/data/quidditch_teams.json")
+    houses_data = load_file_content("//hogwarts/data/quidditch_teams.json")
     quidditch_match(character, houses_data)
     print()
     print("End of Chapter 4 — What an incredible performance on the field!")
