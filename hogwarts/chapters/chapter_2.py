@@ -132,29 +132,14 @@ def sorting_ceremony(character):
     display_character(character)
     return
 
-def chapter_2(character):
-    print()
-    print("-------Chapter 2: The Journey to Hogwarts-------")
-    print()
-    introduction2()
-    meet_friends(character)
-    welcome_message()
-    sorting_ceremony(character)
-    print()
-    print("End of Chapter 2 — Your adventure at Hogwarts is just beginning!")
-    return character
-
-
-with open('../data/houses.json', 'r', encoding='utf-8') as f:
-    houseinfo = json.load(f)
-
 def enter_common_room(character):
+    with open('hogwarts/data/houses.json', 'r', encoding='utf-8') as f:
+        house_info = json.load(f)
     house=character["house"]
-    house_info = houses[house]
     if house == "Gryffindor":
         print("Percy Weasley, the Gryffindor prefect, gathers the new students with a proud smile.")
 
-    print(f"{house_info['way']}")
+    print(f"{house_info['house']['way']}")
     print(f"{house_info['description']}")
     print(f"{house_info['greetings']}")
     print(f"{house_info['installation_message']} {house_info['emoji']}")
@@ -163,3 +148,17 @@ def enter_common_room(character):
     print("You feel a sense of belonging as you take in your new surroundings.")
     print()
     input("Press Enter to continue...")
+
+def chapter_2(character):
+    print()
+    print("-------Chapter 2: The Journey to Hogwarts-------")
+    print()
+    introduction2()
+    meet_friends(character)
+    welcome_message()
+    sorting_ceremony(character)
+    enter_common_room(character)
+    print()
+    print("End of Chapter 2 — Your adventure at Hogwarts is just beginning!")
+    return character
+

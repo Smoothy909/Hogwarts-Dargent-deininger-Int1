@@ -1,8 +1,10 @@
 {
   "Gryffindor": {
     "emoji": "🔥",
+    "way": "You follow him up a grand staircase, your footsteps echoing against the stone walls...",
     "description": "You enter a warm common room, decorated in red and gold. A fire crackles in the fireplace, and students laugh together on the sofas.",
-    "installation_message": "✨ Courage and loyalty are held in high regard here. Welcome to the House of Lions!",
+    "greetings": "Students cheer loudly, their courage and energy filling the air.",
+    "installation_message": "Bravery and determination are your companions. Welcome to the proud House of Gryffindor.",
     "colors": ["red", "gold"],
     "traits": ["courage", "bravery", "loyalty"],
     "bonus_attributs": {
@@ -12,8 +14,10 @@
   },
   "Slytherin": {
     "emoji": "🐍",
+    "way": "You descend into the cool dungeons, the air heavy with mystery...",
     "description": "You discover a vaulted common room, illuminated by the green glow of the lake. Students watch you with curiosity and respect.",
-    "installation_message": "✨ Cunning and ambition are your allies. Welcome to the noble House of Slytherin.",
+    "greetings": "Students watch you with curiosity and respect, their ambition palpable.",
+    "installation_message": "Cunning and ambition are your allies. Welcome to the noble House of Slytherin.",
     "colors": ["green", "silver"],
     "traits": ["cunning", "ambition", "determination"],
     "bonus_attributs": {
@@ -23,8 +27,10 @@
   },
   "Hufflepuff": {
     "emoji": "🌻",
+    "way": "You are guided through cozy corridors near the kitchens...",
     "description": "You enter a cozy room, with walls covered in plants and magical herbs. The atmosphere is peaceful and welcoming.",
-    "installation_message": "✨ Patience and hard work are your greatest strengths. Welcome to Hufflepuff!",
+    "greetings": "Students welcome you with kindness and laughter, offering food and friendship.",
+    "installation_message": "Patience and hard work are your greatest strengths. Welcome to the friendly House of Hufflepuff.",
     "colors": ["yellow", "black"],
     "traits": ["hard work", "patience", "loyalty"],
     "bonus_attributs": {
@@ -34,8 +40,10 @@
   },
   "Ravenclaw": {
     "emoji": "📘",
+    "way": "You climb a spiral staircase that seems endless...",
     "description": "You arrive in a bright room, filled with books and enchanted maps. Discussions are already underway about Professor Flitwick's next riddle.",
-    "installation_message": "✨ Wisdom and curiosity will guide you. Welcome to the scholars of Ravenclaw.",
+    "greetings": "Students greet you with thoughtful smiles, eager for intellectual debate.",
+    "installation_message": "Wisdom and curiosity will guide you. Welcome to the scholars of Ravenclaw.",
     "colors": ["blue", "bronze"],
     "traits": ["intelligence", "creativity", "curiosity"],
     "bonus_attributs": {
@@ -45,31 +53,3 @@
   }
 }
 
-
-print("Percy Weasley, the Gryffindor prefect, gathers the new students with a proud smile.")
-        print("You follow him up a grand staircase, your footsteps echoing against the stone walls...")
-        print("🦁 You discover a grand common room with warm fireplaces and scarlet banners.")
-        print("Students cheer loudly, their courage and energy filling the air.")
-        print("✨ Bravery and determination are your companions. Welcome to the proud House of Gryffindor.")
-        print("Your house colors: red, gold")
-
-    elif character["house"] == "Slytherin":
-        print("You descend into the cool dungeons, the air heavy with mystery...")
-        print("🐍 You discover a vaulted common room, illuminated by the eerie green glow of the lake.")
-        print("Students watch you with curiosity and respect, their ambition palpable.")
-        print("✨ Cunning and ambition are your allies. Welcome to the noble House of Slytherin.")
-        print("Your house colors: green, silver")
-
-    elif character["house"] == "Ravenclaw":
-        print("You climb a spiral staircase that seems endless...")
-        print("🦅 You discover a lofty common room filled with books, starry windows, and a sense of wisdom.")
-        print("Students greet you with thoughtful smiles, eager for intellectual debate.")
-        print("✨ Wit and learning are your strengths. Welcome to the wise House of Ravenclaw.")
-        print("Your house colors: blue, bronze")
-
-    elif character["house"] == "Hufflepuff":
-        print("You are guided through cozy corridors near the kitchens...")
-        print("🦡 You discover a warm common room filled with plants, soft chairs, and golden light.")
-        print("Students welcome you with kindness and laughter, offering food and friendship.")
-        print("✨ Loyalty and patience are your gifts. Welcome to the friendly House of Hufflepuff.")
-        print("Your house colors: yellow, black")
