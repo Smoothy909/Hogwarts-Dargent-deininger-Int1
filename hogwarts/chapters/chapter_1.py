@@ -4,8 +4,7 @@ from hogwarts.universe.character import display_character, add_to_inventory, mod
 
 def introduction():
     print("Welcome to Hogwarts School of Witchcraft and Wizardry!")
-    ### A modifier ici pour l'introduction ###
-    input("Press Enter to continue...")
+    input()
 
 def receive_welcome_letter(character):
     print(f"Dear {character['first_name']} {character['last_name']},")

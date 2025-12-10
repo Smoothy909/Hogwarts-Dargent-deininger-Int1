@@ -38,7 +38,7 @@ def attempt_goal(attacking_team, defending_team, player_is_seeker=False):
         print(f"{defending_team['house']} blocked the goal attempt!")
 
 def golden_snitch_appears():
-    chance_snitch = randint(1, 9)
+    chance_snitch = randint(1, 6)
     if chance_snitch == 6:
         return True
     return False
@@ -56,20 +56,16 @@ def catch_snitch(e1):
 def display_score(e1, e2):
     print()
     print("-------Score-------")
-    print()
-    print(f"{e1['house']}: {e1['score']} points | Goals Scored: {e1['has_scored']} | Snitch Caught: {'Yes' if e1['caught_snitch'] else 'No'}")
-    print(f"{e2['house']}: {e2['score']} points | Goals Scored: {e2['has_scored']} | Snitch Caught: {'Yes' if e2['caught_snitch'] else 'No'}")
-    print()
+    print(f"{e1['house']} -> {e1['score']} points | Goals Scored: {e1['has_scored']} | Snitch Caught: {'Yes' if e1['caught_snitch'] else 'No'}")
+    print(f"{e2['house']} -> {e2['score']} points | Goals Scored: {e2['has_scored']} | Snitch Caught: {'Yes' if e2['caught_snitch'] else 'No'}")
     print("------------------------------")
 
 def display_team(house,team):
     print()
     print(f"-------{house} Quidditch Team-------")
-    print()
     print("Team Members:")
     for member in team['members']:
         print(f" - {member}")
-    print()
     print("------------------------------")
 
 def quidditch_match(character, houses):
@@ -89,13 +85,11 @@ def quidditch_match(character, houses):
     while n <= 20 and not (player_team["caught_snitch"] or opponent_team["caught_snitch"]):
         print()
         print('---Round', n, '---')
-        input("Start round (press Enter)...")
         attempt_goal(player_team, opponent_team, player_is_seeker=True)
         attempt_goal(opponent_team, player_team, player_is_seeker=False)
         if golden_snitch_appears():
             print("The Golden Snitch has appeared!")
             print()
-            input()
             if n % 2 == 1:
                 print("You have a chance to catch the Snitch!")
                 input()

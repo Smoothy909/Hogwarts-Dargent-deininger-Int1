@@ -1,7 +1,9 @@
+import json
 from hogwarts.universe import character
 from hogwarts.utils.input_utils import ask_choice
 from hogwarts.universe.house import assign_house, display_winning_house
 from hogwarts.universe.character import display_character
+
 
 def introduction2():
     print("You board the Hogwarts Express. The train begins its slow journey northward...")
@@ -128,7 +130,7 @@ def sorting_ceremony(character):
     print()
     print(f"The Sorting Hat has decided: You are in {assigned_house}!")
     display_character(character)
-    return character
+    return
 
 def chapter_2(character):
     print()
@@ -140,43 +142,24 @@ def chapter_2(character):
     sorting_ceremony(character)
     print()
     print("End of Chapter 2 — Your adventure at Hogwarts is just beginning!")
-    print()
     return character
 
 
+with open('../data/houses.json', 'r', encoding='utf-8') as f:
+    houseinfo = json.load(f)
+
 def enter_common_room(character):
-    if character["house"] == "Gryffindor":
+    house=character["house"]
+    house_info = houses[house]
+    if house == "Gryffindor":
         print("Percy Weasley, the Gryffindor prefect, gathers the new students with a proud smile.")
-        print("You follow him up a grand staircase, your footsteps echoing against the stone walls...")
-        print("🦁 You discover a grand common room with warm fireplaces and scarlet banners.")
-        print("Students cheer loudly, their courage and energy filling the air.")
-        print("✨ Bravery and determination are your companions. Welcome to the proud House of Gryffindor.")
-        print("Your house colors: red, gold")
 
-    elif character["house"] == "Slytherin":
-        print("You descend into the cool dungeons, the air heavy with mystery...")
-        print("🐍 You discover a vaulted common room, illuminated by the eerie green glow of the lake.")
-        print("Students watch you with curiosity and respect, their ambition palpable.")
-        print("✨ Cunning and ambition are your allies. Welcome to the noble House of Slytherin.")
-        print("Your house colors: green, silver")
-
-    elif character["house"] == "Ravenclaw":
-        print("You climb a spiral staircase that seems endless...")
-        print("🦅 You discover a lofty common room filled with books, starry windows, and a sense of wisdom.")
-        print("Students greet you with thoughtful smiles, eager for intellectual debate.")
-        print("✨ Wit and learning are your strengths. Welcome to the wise House of Ravenclaw.")
-        print("Your house colors: blue, bronze")
-
-    elif character["house"] == "Hufflepuff":
-        print("You are guided through cozy corridors near the kitchens...")
-        print("🦡 You discover a warm common room filled with plants, soft chairs, and golden light.")
-        print("Students welcome you with kindness and laughter, offering food and friendship.")
-        print("✨ Loyalty and patience are your gifts. Welcome to the friendly House of Hufflepuff.")
-        print("Your house colors: yellow, black")
-
-    print()
-    print(f"You enter the {character['house']} common room, a cozy space filled with fellow students.")
-    print("The atmosphere is warm and inviting, with the chatter of students discussing their classes and adventures.")
+    print(f"{house_info['way']}")
+    print(f"{house_info['description']}")
+    print(f"{house_info['greetings']}")
+    print(f"{house_info['installation_message']} {house_info['emoji']}")
+    print(f"{house_info['traits']}")
+    print(f"{house_info['description']}")
     print("You feel a sense of belonging as you take in your new surroundings.")
     print()
     input("Press Enter to continue...")
