@@ -1,4 +1,3 @@
-from hogwarts.universe.house import display_winning_house
 from hogwarts.universe.character import *
 from random import randint, choice
 

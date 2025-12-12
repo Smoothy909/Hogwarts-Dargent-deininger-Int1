@@ -75,7 +75,7 @@ def buy_supplies(character):
         add_to_inventory(character, "inventory", "cat")
         input("Press enter to see your inventory and continue the story...")
         display_character(character)
-        return
+        return character
     else:
         while character['money'] >= 0:
             print()
@@ -177,6 +177,8 @@ def buy_supplies(character):
                     elif item == "Invisibility Cloak - 100 Galleons":
                         price = 100
                         item = "Invisibility Cloak"
+                    else:
+                        price = 0
                     if character['money'] >= price:
                         modify_money(character, -price)
                         add_to_inventory(character, "inventory", item)
