@@ -1,0 +1,97 @@
+[
+    {
+        "potion": "Skele-Gro",
+        "ingredients": [
+            "Bone dust",
+            "Mandrake root",
+            "Wormwood",
+            "Gillyweed extract"
+        ],
+        "effects": "Regrows missing or damaged bones in the drinker.",
+        "difficulty": "Basic"
+    },
+    {
+        "potion": "Pepperup Potion",
+        "ingredients": [
+            "Peppermint",
+            "Cinnamon",
+            "Ginger",
+            "Clove"
+        ],
+        "effects": "Cures the common cold and warms the drinker.",
+        "difficulty": "Basic"
+    },
+    {
+        "potion": "Amortentia",
+        "ingredients": [
+            "Rose thorns",
+            "Peppermint",
+            "Lavender",
+            "Moonstone",
+            "Bone dust"
+        ],
+        "effects": "Causes an intense infatuation or obsession in the drinker towards the first person they see.",
+        "difficulty": "Intermediate"
+    },
+    {
+        "potion": "Draught of Peace",
+        "ingredients": [
+            "Valerian root",
+            "Lavender",
+            "Chamomile",
+            "Peppermint",
+            "Hellebore"
+        ],
+        "effects": "Calms anxiety and soothes agitation in the drinker.",
+        "difficulty": "Intermediate"
+    },
+    {
+        "potion": "Polyjuice Potion",
+        "ingredients": [
+            "Lacewing flies",
+            "Leeches",
+            "Powdered Bicorn horn",
+            "Knotgrass",
+            "Fluxweed",
+            "Boomslang skin",
+            "A piece of the person to be transformed into (hair, nail, etc.)"
+        ],
+        "effects": "Allows the drinker to assume the physical appearance of another person for a limited time.",
+        "difficulty": "Advanced"
+    },
+    {
+        "potion": "Felix Felicis (Liquid Luck)",
+        "ingredients": [
+            "Ashwinder egg",
+            "Squill bulb",
+            "Murtlap tentacle",
+            "thyme",
+            "Occamy eggshell",
+            "Powdered common rue"
+        ],
+        "effects": "Grants the drinker a period of good luck, during which everything they attempt will likely succeed.",
+        "difficulty": "Advanced"
+    },
+    {
+        "potion": "Wolfsbane Potion",
+        "ingredients": [
+            "Aconite",
+            "Valerian root",
+            "Lavender",
+            "Peppermint"
+        ],
+        "effects": "Allows a werewolf to retain their human mind during a full moon transformation.",
+        "difficulty": "Advanced"
+    },
+    {
+        "potion": "Elixir of Life",
+        "ingredients": [
+            "Philosopher's Stone",
+            "Mandrake root",
+            "Unicorn horn powder",
+            "Dragon's blood"
+        ],
+        "effects": "Grants the drinker extended life and immortality as long as they continue to consume it.",
+        "difficulty": "Legendary"
+    }
+]

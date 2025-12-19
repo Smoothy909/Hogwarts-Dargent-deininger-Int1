@@ -6,10 +6,18 @@ def create_character():
     last_name = ask_text("Enter your last name: ")
 
     print("Distribute 30 points among the following attributes:")
-    intelligence = ask_number("Intelligence (0-10): ")
-    courage = ask_number("Courage (0-10): ")
-    loyalty = ask_number("Loyalty (0-10): ")
-    ambition = ask_number("Ambition (0-10): ")
+    intelligence = ask_number("Intelligence (1-10): ")
+    while intelligence < 0 or intelligence > 10:
+        intelligence = ask_number("Intelligence (1-10): ")
+    courage = ask_number("Courage (1-10): ")
+    while courage < 0 or courage > 10:
+        courage = ask_number("Courage (1-10): ")
+    loyalty = ask_number("Loyalty (1-10): ")
+    while loyalty < 0 or loyalty > 10:
+        loyalty = ask_number("Loyalty (1-10): ")
+    ambition = ask_number("Ambition (1-10): ")
+    while ambition < 0 or ambition > 10:
+        ambition = ask_number("Ambition (1-10): ")
 
     total_points = intelligence + courage + loyalty + ambition
 

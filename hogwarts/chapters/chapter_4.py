@@ -54,10 +54,10 @@ def catch_snitch(e1):
 
 def display_score(e1, e2):
     print()
-    print("-------Score-------")
+    print("Score:")
     print(f"{e1['house']} -> {e1['score']} points | Goals Scored: {e1['has_scored']} | Snitch Caught: {'Yes' if e1['caught_snitch'] else 'No'}")
     print(f"{e2['house']} -> {e2['score']} points | Goals Scored: {e2['has_scored']} | Snitch Caught: {'Yes' if e2['caught_snitch'] else 'No'}")
-    print("------------------------------")
+    print()
 
 def display_team(house,team):
     print()
@@ -91,7 +91,6 @@ def quidditch_match(character, houses):
             print()
             if n % 2 == 1:
                 print("You have a chance to catch the Snitch!")
-                input()
                 catch_snitch(player_team)
             else:
                 print(f"{opponent_team['house']} has a chance to catch the Snitch!")
@@ -99,7 +98,6 @@ def quidditch_match(character, houses):
             break
         display_score(opponent_team, player_team) if (n % 3 == 1) or (n == 1) else None
         n += 1
-        input()
     print('--------Quidditch Match End!--------')
     display_score(opponent_team, player_team)
     winning_team = player_team if player_team["score"] > opponent_team["score"] else opponent_team
