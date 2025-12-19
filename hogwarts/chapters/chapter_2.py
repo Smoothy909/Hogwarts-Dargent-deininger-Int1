@@ -1,6 +1,6 @@
 import json
 from hogwarts.universe import character
-from hogwarts.utils.input_utils import ask_choice
+from hogwarts.utils.input_utils import ask_choice, load_file_content
 from hogwarts.universe.house import assign_house, display_winning_house
 from hogwarts.universe.character import display_character
 
@@ -133,8 +133,7 @@ def sorting_ceremony(character):
     return
 
 def enter_common_room(character):
-    with open('hogwarts/data/houses.json', 'r', encoding='utf-8') as f:
-        house_info = json.load(f)
+    house_info = load_file_content('hogwarts/data/houses.json')
     house=character["house"]
     if house == "Gryffindor":
         print("Percy Weasley, the Gryffindor prefect, gathers the new students with a proud smile.")
