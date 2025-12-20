@@ -138,12 +138,11 @@ def enter_common_room(character):
     if house == "Gryffindor":
         print("Percy Weasley, the Gryffindor prefect, gathers the new students with a proud smile.")
 
-    print(f"{house_info['house']['way']}")
-    print(f"{house_info['description']}")
-    print(f"{house_info['greetings']}")
-    print(f"{house_info['installation_message']} {house_info['emoji']}")
-    print(f"{house_info['traits']}")
-    print(f"{house_info['description']}")
+    print(f"{house_info[character['house']]['way']}")
+    print(f"{house_info[character['house']]['description']}")
+    print(f"{house_info[character['house']]['greetings']}")
+    print(f"{house_info[character['house']]['installation_message']} {house_info[character['house']]['emoji']}")
+    print(f"{house_info[character['house']]['traits']}")
     print("You feel a sense of belonging as you take in your new surroundings.")
     print()
     input("Press Enter to continue...")

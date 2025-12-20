@@ -11,7 +11,7 @@
         "difficulty": "Basic"
     },
     {
-        "potion": "Pepperup Potion",
+        "potion": "Pepperup",
         "ingredients": [
             "Peppermint",
             "Cinnamon",
@@ -46,7 +46,7 @@
         "difficulty": "Intermediate"
     },
     {
-        "potion": "Polyjuice Potion",
+        "potion": "Polyjuice",
         "ingredients": [
             "Lacewing flies",
             "Leeches",
@@ -60,7 +60,7 @@
         "difficulty": "Advanced"
     },
     {
-        "potion": "Felix Felicis (Liquid Luck)",
+        "potion": "Felix Felicis",
         "ingredients": [
             "Ashwinder egg",
             "Squill bulb",
@@ -73,7 +73,7 @@
         "difficulty": "Advanced"
     },
     {
-        "potion": "Wolfsbane Potion",
+        "potion": "Wolfsbane",
         "ingredients": [
             "Aconite",
             "Valerian root",
