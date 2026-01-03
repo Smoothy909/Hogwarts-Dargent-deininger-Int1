@@ -42,7 +42,8 @@
     {
         "name": "Reparo",
         "description": "Repairs broken objects.",
-        "type": "Utility"
+        "type": "Utility",
+        "sensation": "A harmonious vibration hums in your hand, guiding scattered pieces toward wholeness."
     },
     {
         "name": "Expelliarmus",
@@ -60,54 +61,9 @@
         "type": "Defensive"
     },
     {
-        "name": "Petrificus Totalus",
-        "description": "Completely petrifies the target.",
-        "type": "Offensive"
-    },
-    {
-        "name": "Stupefy",
-        "description": "Temporarily stuns an opponent.",
-        "type": "Offensive"
-    },
-    {
-        "name": "Rictusempra",
-        "description": "Makes the target laugh uncontrollably and weakens them.",
-        "type": "Offensive"
-    },
-    {
-        "name": "Incendio",
-        "description": "Creates a flame.",
-        "type": "Offensive"
-    },
-    {
-        "name": "Crucio",
-        "description": "Inflicts unbearable pain on the target.",
-        "type": "Offensive"
-    },
-    {
-        "name": "Imperio",
-        "description": "Controls the actions of the target.",
-        "type": "Offensive"
-    },
-    {
-        "name": "Avada Kedavra",
-        "description": "Causes instant death to the target.",
-        "type": "Offensive"
-    },
-    {
         "name": "Expecto Patronum",
         "description": "Conjures a Patronus to repel Dementors.",
         "type": "Defensive"
-    },
-    {
-        "name": "Diffindo",
-        "description": "Cuts objects with precision.",
-        "type": "Offensive"
-    },
-    {
-        "name": "Confringo",
-        "description": "Causes an explosion upon impact.",
-        "type": "Offensive"
     },
     {
         "name": "Rennervate",
@@ -115,8 +71,57 @@
         "type": "Defensive"
     },
     {
+        "name": "Petrificus Totalus",
+        "description": "Completely petrifies the target.",
+        "type": "Offensive",
+        "sensation": "A rigid, stone-like tension locks into your fingers, as if your own body were momentarily freezing from within."
+    },
+    {
+        "name": "Stupefy",
+        "description": "Temporarily stuns an opponent.",
+        "type": "Offensive",
+        "sensation": "A sharp burst of red-hot force surges through your arm, eager to erupt in a stunning shockwave."
+    },
+    {
+        "name": "Rictusempra",
+        "description": "Makes the target laugh uncontrollably and weakens them.",
+        "type": "Offensive",
+        "sensation": "A light, tickling spark dances across your fingertips, playful yet strangely destabilizing."
+    },
+    {
+        "name": "Incendio",
+        "description": "Creates a flame.",
+        "type": "Offensive",
+        "sensation": "A warm, hungry heat coils in your palm, flickering like a flame waiting to be unleashed."
+    },
+    {
+        "name": "Crucio",
+        "description": "Inflicts unbearable pain on the target.",
+        "type": "Offensive",
+        "sensation": "A chilling, venomous pulse crawls up your arm, radiating a cruel intensity that makes the air itself feel hostile."
+    },
+    {
+        "name": "Imperio",
+        "description": "Controls the actions of the target.",
+        "type": "Offensive",
+        "sensation": "A smooth, silvery calm floods your mind and hand, disturbingly serene, as if your will were stretching outward to claim another."
+    },
+    {
+        "name": "Diffindo",
+        "description": "Cuts objects with precision.",
+        "type": "Offensive",
+        "sensation": "A razor-thin line of focused energy sharpens at your fingertips, precise enough to slice through the air itself."
+    },
+    {
+        "name": "Confringo",
+        "description": "Causes an explosion upon impact.",
+        "type": "Offensive",
+        "sensation": "A volatile pressure swells in your hand, trembling with explosive potential barely held in check."
+    },
+    {
         "name": "Incarcerous",
         "description": "Conjures ropes to bind a target.",
-        "type": "Offensive"
+        "type": "Offensive",
+        "sensation": "A twisting, rope-like force coils around your wrist, ready to spring forward and bind whatever stands before you."
     }
 ]

@@ -1,5 +1,6 @@
 from hogwarts.utils.input_utils import *
 from random import randint
+
 def create_character():
     print("Let's create your character!")
     first_name = ask_text("Enter your first name: ")
@@ -24,9 +25,17 @@ def create_character():
     while total_points > 30:
         print("You have allocated more than the maximum amount of points. Please redistribute your points.")
         intelligence = ask_number("Intelligence (0-10): ")
+        while intelligence < 0 or intelligence > 10:
+            intelligence = ask_number("Intelligence (0-10): ")
         courage = ask_number("Courage (0-10): ")
+        while courage < 0 or courage > 10:
+            courage = ask_number("Courage (0-10): ")
         loyalty = ask_number("Loyalty (0-10): ")
+        while loyalty < 0 or loyalty > 10:
+            loyalty = ask_number("Loyalty (0-10): ")
         ambition = ask_number("Ambition (0-10): ")
+        while ambition < 0 or ambition > 10:
+            ambition = ask_number("Ambition (0-10): ")
         total_points = intelligence + courage + loyalty + ambition
 
     attributes = {
@@ -62,6 +71,10 @@ def display_character(character):
     print("-------Character Info-------")
     print()
     print(f"Character: {character['first_name']} {character['last_name']}")
+    try:
+        print(f"House: {character['house']}")
+    except KeyError:
+        pass
     print(f"Money: {character['money']} Galleons")
     print("Inventory:", ", ".join(character['inventory']) if character['inventory'] else "Empty")
     print("Spells Learned:", ", ".join(character['spells_learned']) if character['spells_learned'] else "None")

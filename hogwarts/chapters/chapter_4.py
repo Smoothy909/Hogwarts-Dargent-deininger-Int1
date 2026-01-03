@@ -1,5 +1,6 @@
 from hogwarts.universe.character import *
 from random import randint, choice
+from hogwarts.universe.house import display_winning_house, modify_houses_points, initialize_houses
 
 def create_team(house, team_data, is_player=False, player=None):
     team = {
@@ -48,9 +49,7 @@ def catch_snitch(e1):
         e1["caught_snitch"] = True
         e1["score"] += 150
         print(f"{e1['house']} caught the Golden Snitch and earns 150 points!")
-        return e1
-    else:
-        return e1
+    return e1
 
 def display_score(e1, e2):
     print()
@@ -67,9 +66,14 @@ def display_team(house,team):
         print(f" - {member}")
     print("------------------------------")
 
-def quidditch_match(character, houses):
-    player_team = create_team(character['house'], houses, is_player=True, player=character)
-    available_houses = {k: v for k, v in houses.items() if k != character['house']}
+def quidditch_match(character, houses_data, houses):
+    player_playing = ask_choice("Do you want to play the Quidditch match as the Seeker for your house team?", ["Yes", "No"])
+    is_player = True if player_playing == "Yes" else False
+    if is_player:
+        player_team = create_team(character['house'], houses_data, is_player=True, player=character)
+    else:
+        player_team = create_team(character['house'], houses_data, is_player=False)
+    available_houses = {k: v for k, v in houses_data.items() if k != character['house']}
     opponent_house = choice(list(available_houses.keys()))
     opponent_team = create_team(opponent_house, available_houses, is_player=False)
     input("Press Enter to see the teams...")
@@ -95,19 +99,38 @@ def quidditch_match(character, houses):
             else:
                 print(f"{opponent_team['house']} has a chance to catch the Snitch!")
                 catch_snitch(opponent_team)
-            break
-        display_score(opponent_team, player_team) if (n % 3 == 1) or (n == 1) else None
+        display_score(opponent_team, player_team) if (n % 3 == 0) or (n == 1) else None
         n += 1
+
     print('--------Quidditch Match End!--------')
     display_score(opponent_team, player_team)
     winning_team = player_team if player_team["score"] > opponent_team["score"] else opponent_team
-    #display_winning_house(winning_team) #to update later with match winner
     print()
     print(f"The winner of the Quidditch match is {winning_team['house']}!")
-    print()
-    return
 
-def chapter_4(character):
+    modify_houses_points(houses, player_team["score"], player_team["house"])
+    modify_houses_points(houses, opponent_team["score"], opponent_team["house"])
+    all_houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]
+    all_houses.pop(all_houses.index(player_team['house']))
+    all_houses.pop(all_houses.index(opponent_team['house']))
+    for i in range(len(all_houses)):
+        if i % 2 == 0:
+            modify_houses_points(houses, 10 * randint(0, 7) + 150, all_houses[i])
+        else:
+            modify_houses_points(houses, 10 * randint(0, 7), all_houses[i])
+
+    print(f"your house {character['house']} has {houses[character['house']]} points!")
+
+    if winning_team['house'] == character['house'] and is_player:
+        character["Attributes"]["courage"] += 2
+        character["Attributes"]["loyalty"] += 1
+        character["Attributes"]["intelligence"] += 1
+        character["Attributes"]["ambition"] += 2
+        modify_money(character, 42)
+    print()
+    return houses, character
+
+def chapter_4(character, houses):
     print()
     print("-------Chapter 4: The Quidditch Match-------")
     print()
@@ -117,8 +140,10 @@ def chapter_4(character):
     print("Get ready to take to the skies and lead your team to victory!")
     input()
     houses_data = load_file_content("hogwarts/data/teams_quidditch.json")
-    quidditch_match(character, houses_data)
+    quidditch_match(character, houses_data, houses)
+    display_winning_house(houses)
     print("End of Chapter 4 — What an incredible performance on the field!")
+    return character, houses
 
 
 

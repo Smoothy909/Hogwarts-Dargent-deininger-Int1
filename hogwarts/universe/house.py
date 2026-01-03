@@ -1,4 +1,5 @@
 from hogwarts.utils.input_utils import *
+
 def update_house_points(houses, house_name, points):
     if house_name in houses:
         houses[house_name] += points
@@ -6,12 +7,37 @@ def update_house_points(houses, house_name, points):
         houses[house_name] = points
     return houses
 
+def initialize_houses(houses= None):
+    if houses == None:
+        houses = {
+            "Gryffindor": 67,
+            "Hufflepuff": 67,
+            "Ravenclaw": 67,
+            "Slytherin": 67
+        }
+    else:
+        return houses
+    return houses
+
+def modify_houses_points(houses, additional_points=0, house_name=None):
+    if house_name and (house_name in houses):
+        houses[house_name] += additional_points
+    return houses
+
+def display_houses(houses):
+    for key, value in houses.items():
+        print(f"{key}: {value}")
+
 def display_winning_house(houses):
-    if not houses:
-        print("No houses available.")
-        return
     winning_house = max(houses, key=houses.get)
+    print()
+    print("---------Winning House---------")
+    print()
     print(f"The winning house is {winning_house} with {houses[winning_house]} points!")
+    print("Congratulations to all members of the house!")
+    print()
+    print("-------------------------------")
+    print()
 
 questions = [
     (
@@ -161,9 +187,6 @@ def assign_house(character):
                 break
 
     return assigned_house
-
-
-
 
 
 

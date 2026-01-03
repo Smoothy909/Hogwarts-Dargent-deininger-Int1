@@ -6,11 +6,7 @@
     "greetings": "Students cheer loudly, their courage and energy filling the air.",
     "installation_message": "Bravery and determination are your companions. Welcome to the proud House of Gryffindor.",
     "colors": ["red", "gold"],
-    "traits": ["courage", "bravery", "loyalty"],
-    "bonus_attributs": {
-      "courage": 2,
-      "loyalty": 1
-    }
+    "traits": ["courage", "bravery", "loyalty"]
   },
   "Slytherin": {
     "emoji": "🐍",
@@ -19,11 +15,7 @@
     "greetings": "Students watch you with curiosity and respect, their ambition palpable.",
     "installation_message": "Cunning and ambition are your allies. Welcome to the noble House of Slytherin.",
     "colors": ["green", "silver"],
-    "traits": ["cunning", "ambition", "determination"],
-    "bonus_attributs": {
-      "ambition": 2,
-      "intelligence": 1
-    }
+    "traits": ["cunning", "ambition", "determination"]
   },
   "Hufflepuff": {
     "emoji": "🌻",
@@ -32,11 +24,7 @@
     "greetings": "Students welcome you with kindness and laughter, offering food and friendship.",
     "installation_message": "Patience and hard work are your greatest strengths. Welcome to the friendly House of Hufflepuff.",
     "colors": ["yellow", "black"],
-    "traits": ["hard work", "patience", "loyalty"],
-    "bonus_attributs": {
-      "loyalty": 2,
-      "courage": 1
-    }
+    "traits": ["hard work", "patience", "loyalty"]
   },
   "Ravenclaw": {
     "emoji": "📘",
@@ -45,11 +33,7 @@
     "greetings": "Students greet you with thoughtful smiles, eager for intellectual debate.",
     "installation_message": "Wisdom and curiosity will guide you. Welcome to the scholars of Ravenclaw.",
     "colors": ["blue", "bronze"],
-    "traits": ["intelligence", "creativity", "curiosity"],
-    "bonus_attributs": {
-      "intelligence": 2,
-      "ambition": 1
-    }
+    "traits": ["intelligence", "creativity", "curiosity"]
   }
 }
 
